@@ -12,7 +12,7 @@
  Target Server Version : 10001600
  File Encoding         : 65001
 
- Date: 08/06/2020 17:08:44
+ Date: 09/06/2020 17:06:40
 */
 
 
@@ -22289,6 +22289,7 @@ IF EXISTS (SELECT * FROM sys.all_objects WHERE object_id = OBJECT_ID(N'[dbo].[tb
 GO
 
 CREATE TABLE [dbo].[tblJob] (
+  [id] int  IDENTITY(1,1) NOT NULL,
   [jobID] varchar(255) COLLATE SQL_Latin1_General_CP1_CI_AS  NOT NULL,
   [dateTrans] datetime2(7)  NULL,
   [cardID] varchar(255) COLLATE SQL_Latin1_General_CP1_CI_AS  NULL,
@@ -22301,6 +22302,19 @@ CREATE TABLE [dbo].[tblJob] (
 GO
 
 ALTER TABLE [dbo].[tblJob] SET (LOCK_ESCALATION = TABLE)
+GO
+
+
+-- ----------------------------
+-- Records of tblJob
+-- ----------------------------
+SET IDENTITY_INSERT [dbo].[tblJob] ON
+GO
+
+INSERT INTO [dbo].[tblJob] ([id], [jobID], [dateTrans], [cardID], [itemNo], [jobQTY], [status], [remarks], [userID]) VALUES (N'11', N'JO-00002', N'2020-06-09 17:03:06.3406030', N'CUS-00001', N'FP-00001', N'9500', N'', N'', N'USR-00001')
+GO
+
+SET IDENTITY_INSERT [dbo].[tblJob] OFF
 GO
 
 
@@ -40460,9 +40474,11 @@ GO
 
 CREATE VIEW [dbo].[JOB_PREPARATION_VIEW] AS SELECT
 dbo.tblSalesOrder.salesOrderNo TRNO,
+dbo.tblCardsProfile.cardID cardID,
 dbo.tblCardsProfile.cardName CARDNAME,
 dbo.tblSalesItemsTR.itemNo ITEMNO,
 dbo.InventoryListAllView.ITEMDESC AS DESCRIPTION,
+dbo.InventoryListAllView.unit AS UNIT,
 dbo.tblSalesItemsTR.qty REQUEST_QTY,
 dbo.InventoryListAllView.QTY AS ONHAND_QTY
 FROM
@@ -44150,6 +44166,15 @@ GO
 -- Primary Key structure for table tblInvtry
 -- ----------------------------
 ALTER TABLE [dbo].[tblInvtry] ADD CONSTRAINT [PK__tblInvtr__7A8D6CD055209ACA] PRIMARY KEY CLUSTERED ([ITEMNO])
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
+ON [PRIMARY]
+GO
+
+
+-- ----------------------------
+-- Primary Key structure for table tblJob
+-- ----------------------------
+ALTER TABLE [dbo].[tblJob] ADD CONSTRAINT [PK_tblJob] PRIMARY KEY CLUSTERED ([id])
 WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
 ON [PRIMARY]
 GO
