@@ -169,6 +169,7 @@
       <DesignTime>True</DesignTime>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="dc.vb" />
     <Compile Include="HR Information System\databaseConnection.Designer.vb">
       <DependentUpon>databaseConnection.vb</DependentUpon>
     </Compile>
@@ -1298,6 +1299,12 @@
     <Compile Include="reportViewer.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Sales\prepare_job.Designer.vb">
+      <DependentUpon>prepare_job.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\prepare_job.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Sales\frmReceivePayments.Designer.vb">
       <DependentUpon>frmReceivePayments.vb</DependentUpon>
     </Compile>
@@ -1328,36 +1335,6 @@
     <Compile Include="Sales\frmsales_list_selector.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sales\printed_forms\DRandGP\DeliveryReceipt.vb">
-      <DependentUpon>DeliveryReceipt.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Sales\printed_forms\DRandGP\DRANDGP.vb">
-      <DependentUpon>DRANDGP.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Sales\printed_forms\DRandGP\GatePass.vb">
-      <DependentUpon>GatePass.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Sales\printed_forms\JOBORDER\JobOrder.vb">
-      <DependentUpon>JobOrder.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Sales\printed_forms\JOBORDER\JOForm.vb">
-      <DependentUpon>JOForm.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="Sales\SalesList.Designer.vb">
       <DependentUpon>SalesList.vb</DependentUpon>
     </Compile>
@@ -1371,6 +1348,11 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Sales\sales_class.vb" />
+    <Compile Include="system.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>system.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Users\frmRegForm.Designer.vb">
       <DependentUpon>frmRegForm.vb</DependentUpon>
     </Compile>
@@ -2015,6 +1997,9 @@
     <EmbeddedResource Include="reportViewer.resx">
       <DependentUpon>reportViewer.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sales\prepare_job.resx">
+      <DependentUpon>prepare_job.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sales\frmReceivePayments.resx">
       <DependentUpon>frmReceivePayments.vb</DependentUpon>
     </EmbeddedResource>
@@ -2030,38 +2015,26 @@
     <EmbeddedResource Include="Sales\frmsales_list_selector.resx">
       <DependentUpon>frmsales_list_selector.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\printed_forms\DRandGP\DeliveryReceipt.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>DeliveryReceipt.vb</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sales\printed_forms\DRandGP\DRANDGP.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>DRANDGP.vb</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sales\printed_forms\DRandGP\GatePass.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>GatePass.vb</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sales\printed_forms\JOBORDER\JobOrder.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>JobOrder.vb</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sales\printed_forms\JOBORDER\JOForm.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>JOForm.vb</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Sales\SalesList.resx">
       <DependentUpon>SalesList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\SalesTransactionViewer.resx">
       <DependentUpon>SalesTransactionViewer.vb</DependentUpon>
     </EmbeddedResource>
+    <None Include="system.dbml.layout">
+      <DependentUpon>system.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="Users\frmRegForm.resx">
       <DependentUpon>frmRegForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\frmUserList.resx">
       <DependentUpon>frmUserList.vb</DependentUpon>
     </EmbeddedResource>
+    <None Include="system.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>system.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Accounting\accounting.dbml">
@@ -2160,6 +2133,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Reports\" />
+    <Folder Include="Sales\printed_forms\JOBORDER\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="HR Information System\DFCPS LOGO1 RBW.ico" />

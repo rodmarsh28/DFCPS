@@ -53,4 +53,8 @@
     Private Sub ReceivePaymentsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ReceivePaymentsToolStripMenuItem.Click
         frmReceivePayments.Show()
     End Sub
+
+    Private Sub PrepareJobOrderToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PrepareJobOrderToolStripMenuItem.Click
+        prepare_job.Show()
+    End Sub
 End Class

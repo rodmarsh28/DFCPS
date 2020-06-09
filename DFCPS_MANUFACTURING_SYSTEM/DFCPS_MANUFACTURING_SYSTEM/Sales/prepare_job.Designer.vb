@@ -23,28 +23,46 @@ Partial Class prepare_job
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.TXTCUS = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.TXTJONO = New System.Windows.Forms.TextBox()
         Me.dgv = New System.Windows.Forms.DataGridView()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TXTREF = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtCustomer = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtJobNo = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtRemarks = New System.Windows.Forms.RichTextBox()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
+        'TXTCUS
+        '
+        Me.TXTCUS.Enabled = False
+        Me.TXTCUS.Location = New System.Drawing.Point(113, 49)
+        Me.TXTCUS.Name = "TXTCUS"
+        Me.TXTCUS.Size = New System.Drawing.Size(530, 20)
+        Me.TXTCUS.TabIndex = 65
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(26, 52)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(51, 13)
+        Me.Label3.TabIndex = 67
+        Me.Label3.Text = "Costumer"
+        '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(392, 247)
+        Me.Button3.Location = New System.Drawing.Point(371, 237)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(107, 48)
         Me.Button3.TabIndex = 83
@@ -53,148 +71,144 @@ Partial Class prepare_job
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(276, 247)
+        Me.Button2.Location = New System.Drawing.Point(255, 237)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(107, 48)
         Me.Button2.TabIndex = 82
         Me.Button2.Text = "Record"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'dgv
-        '
-        Me.dgv.AllowUserToAddRows = False
-        Me.dgv.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Azure
-        Me.dgv.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgv.BackgroundColor = System.Drawing.Color.White
-        Me.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column8, Me.Column1, Me.Column2, Me.Column3, Me.Column4})
-        Me.dgv.Location = New System.Drawing.Point(27, 80)
-        Me.dgv.Name = "dgv"
-        Me.dgv.ReadOnly = True
-        Me.dgv.Size = New System.Drawing.Size(755, 141)
-        Me.dgv.TabIndex = 104
-        '
-        'Column8
-        '
-        Me.Column8.HeaderText = "Item #"
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Description"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Width = 300
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Request Qty"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Onhand Qty"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Job Qty"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(24, 46)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(51, 13)
-        Me.Label3.TabIndex = 67
-        Me.Label3.Text = "Costumer"
-        '
-        'txtCustomer
-        '
-        Me.txtCustomer.Enabled = False
-        Me.txtCustomer.Location = New System.Drawing.Point(111, 43)
-        Me.txtCustomer.Name = "txtCustomer"
-        Me.txtCustomer.Size = New System.Drawing.Size(234, 20)
-        Me.txtCustomer.TabIndex = 65
-        '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(24, 20)
+        Me.Label6.Location = New System.Drawing.Point(26, 26)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(26, 13)
         Me.Label6.TabIndex = 87
         Me.Label6.Text = "NO."
         '
-        'txtJobNo
+        'TXTJONO
         '
-        Me.txtJobNo.Enabled = False
-        Me.txtJobNo.ForeColor = System.Drawing.Color.Maroon
-        Me.txtJobNo.Location = New System.Drawing.Point(112, 17)
-        Me.txtJobNo.Name = "txtJobNo"
-        Me.txtJobNo.Size = New System.Drawing.Size(233, 20)
-        Me.txtJobNo.TabIndex = 88
+        Me.TXTJONO.Enabled = False
+        Me.TXTJONO.ForeColor = System.Drawing.Color.Maroon
+        Me.TXTJONO.Location = New System.Drawing.Point(114, 23)
+        Me.TXTJONO.Name = "TXTJONO"
+        Me.TXTJONO.Size = New System.Drawing.Size(122, 20)
+        Me.TXTJONO.TabIndex = 88
+        '
+        'dgv
+        '
+        Me.dgv.AllowUserToAddRows = False
+        Me.dgv.AllowUserToDeleteRows = False
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Azure
+        Me.dgv.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
+        Me.dgv.BackgroundColor = System.Drawing.Color.White
+        Me.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column6, Me.Column4, Me.Column7})
+        Me.dgv.Location = New System.Drawing.Point(18, 86)
+        Me.dgv.Name = "dgv"
+        Me.dgv.ReadOnly = True
+        Me.dgv.Size = New System.Drawing.Size(714, 141)
+        Me.dgv.TabIndex = 104
+        '
+        'TXTREF
+        '
+        Me.TXTREF.ForeColor = System.Drawing.Color.Maroon
+        Me.TXTREF.Location = New System.Drawing.Point(521, 19)
+        Me.TXTREF.Name = "TXTREF"
+        Me.TXTREF.Size = New System.Drawing.Size(122, 20)
+        Me.TXTREF.TabIndex = 116
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(362, 15)
+        Me.Label1.Location = New System.Drawing.Point(468, 22)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(49, 13)
-        Me.Label1.TabIndex = 105
-        Me.Label1.Text = "Remarks"
+        Me.Label1.Size = New System.Drawing.Size(38, 13)
+        Me.Label1.TabIndex = 115
+        Me.Label1.Text = "REF #"
         '
-        'txtRemarks
+        'Column1
         '
-        Me.txtRemarks.Location = New System.Drawing.Point(417, 12)
-        Me.txtRemarks.Name = "txtRemarks"
-        Me.txtRemarks.Size = New System.Drawing.Size(365, 51)
-        Me.txtRemarks.TabIndex = 106
-        Me.txtRemarks.Text = ""
+        Me.Column1.Frozen = True
+        Me.Column1.HeaderText = "Item #"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        '
+        'Column2
+        '
+        Me.Column2.Frozen = True
+        Me.Column2.HeaderText = "Description"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 150
+        '
+        'Column3
+        '
+        Me.Column3.Frozen = True
+        Me.Column3.HeaderText = "Unit"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 110
+        '
+        'Column6
+        '
+        Me.Column6.Frozen = True
+        Me.Column6.HeaderText = "Request Qty"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        '
+        'Column4
+        '
+        Me.Column4.Frozen = True
+        Me.Column4.HeaderText = "Onhand Qty"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "Job order"
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
         '
         'prepare_job
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(817, 316)
-        Me.Controls.Add(Me.txtRemarks)
+        Me.ClientSize = New System.Drawing.Size(744, 304)
+        Me.Controls.Add(Me.TXTREF)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dgv)
-        Me.Controls.Add(Me.txtJobNo)
+        Me.Controls.Add(Me.TXTJONO)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.txtCustomer)
+        Me.Controls.Add(Me.TXTCUS)
         Me.Controls.Add(Me.Label3)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "prepare_job"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Prepare Job Form"
+        Me.Text = "    PREPARE JOB"
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
+    Friend WithEvents TXTCUS As System.Windows.Forms.TextBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
-    Friend WithEvents dgv As System.Windows.Forms.DataGridView
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents txtCustomer As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents txtJobNo As System.Windows.Forms.TextBox
-    Friend WithEvents Column8 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents TXTJONO As System.Windows.Forms.TextBox
+    Friend WithEvents dgv As System.Windows.Forms.DataGridView
+    Friend WithEvents TXTREF As System.Windows.Forms.TextBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column4 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents txtRemarks As System.Windows.Forms.RichTextBox
+    Friend WithEvents Column7 As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

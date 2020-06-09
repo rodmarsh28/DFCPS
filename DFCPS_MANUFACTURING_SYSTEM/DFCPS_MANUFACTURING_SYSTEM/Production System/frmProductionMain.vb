@@ -322,9 +322,7 @@ Public Class frmProductionMain
     End Sub
 
     Private Sub BagInventoryReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Dim gn As String
-        Dim st As String
-        Dim dformat As String
+ 
 
 
         Try

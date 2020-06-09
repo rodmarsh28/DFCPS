@@ -118,10 +118,27 @@ Public Class sales_class
         da.Fill(dtable)
     End Sub
 
-    Sub prepareJob()
-        Dim cmd As New SqlCommand("SELECT * FROM JOB_PREPARATION_VIEW where TRNO = '" & searchValue & "'", conn)
-        Dim da As New SqlDataAdapter(cmd)
-        da.SelectCommand = cmd
-        da.Fill(dtable)
+    Function prepareJob(ByVal id As String, ByVal ft As String) As DataTable
+
+        checkConn()
+        If ft <> "ref" Then
+            Dim cmd As New SqlCommand("SELECT * FROM JOB_PREPARATION_VIEW where TRNO = '" & id & "'", conn)
+            Dim da As New SqlDataAdapter(cmd)
+            da.SelectCommand = cmd
+            da.Fill(dtable)
+        Else
+            Dim cmd As New SqlCommand("SELECT * FROM JOB_PREPARATION_VIEW ", conn)
+            Dim da As New SqlDataAdapter(cmd)
+            da.SelectCommand = cmd
+            da.Fill(dtable)
+        End If
+        Return dtable
+    End Function
+
+    Public Sub insertData(ByVal tbl As String, ByVal data As String)
+        checkConn()
+        MsgBox(data)
+        Dim cmd As New SqlCommand("insert into " & tbl & " values('" & data & "')", conn)
+        cmd.ExecuteNonQuery()
     End Sub
 End Class

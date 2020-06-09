@@ -1,5 +1,6 @@
 ﻿Imports System.Data
 Imports System.IO
+Imports System.Linq
 Imports System.Data.SqlClient
 Imports System.Data.OleDb
 Imports CrystalDecisions.CrystalReports.Engine
@@ -8,9 +9,9 @@ Module modconn
     Public strSQL As String
     Public OleDBC As New SqlCommand
     Public OleDBDR As SqlDataReader
-
     Public ds As DataSet
     Public conn As New SqlConnection
+
     Public mode As String
     Public strConnString As String
     Public perform As String
@@ -19,6 +20,7 @@ Module modconn
     Public last_row_change As DateTime
     Public latest_row_change As DateTime
     Public hasdbupdated As Boolean
+
 
     Public Sub ConnectDatabase()
         'strConnString = "Persist Security Info=False;Integrated Security=true;Initial Catalog=DBMATMONITORINGDBS;server=localhost"
@@ -29,6 +31,15 @@ Module modconn
         conn.ConnectionString = strConnString
         conn.Open()
     End Sub
+    Public Function connectLink() As Linq.DataContext
+        Dim dc As Linq.DataContext
+        strConnString = "Data Source=" & My.Settings.mServer & ";" & _
+                       "Initial Catalog=" & My.Settings.mDBname & ";" & _
+                       "User ID=" & My.Settings.mUserDB & ";" & _
+                       "Password=" & My.Settings.mPassDB
+        dc.Connection.ConnectionString = strConnString
+        Return dc
+    End Function
     Sub checkConn()
         If conn.State = ConnectionState.Open Then
             OleDBC.Dispose()
@@ -190,5 +201,29 @@ Module modconn
             Case 9 : GetDigit = "Nine"
             Case Else : GetDigit = ""
         End Select
+    End Function
+
+
+    Function generateFormNo(ByVal tbl As String, ByVal col As String, ByVal series As String)
+        Try
+            checkConn()
+            Dim cmd As New SqlCommand("select max(" & col & ") from " & tbl & "", conn)
+            Dim reslt As String
+            Dim genNo As String
+            Dim reader As SqlDataReader = cmd.ExecuteReader
+            If reader.Read Then
+                If IsDBNull(reader.Item(0)) <> True Then
+                    reslt = reader.Item(0)
+                Else
+                    reslt = series & "00000"
+                End If
+            End If
+            genNo = Mid(reslt, Len(series) + 1, Len(reslt))
+            genNo = series & Format(Val(genNo) + 1, "00000")
+            Return genNo
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return ""
+        End Try
     End Function
 End Module
