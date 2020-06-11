@@ -134,11 +134,36 @@ Public Class sales_class
         End If
         Return dtable
     End Function
+    Public Sub printjob(ByVal search As String)
+        frmLoading.Show()
+        checkConn()
 
+        Dim cmd As New SqlCommand("SELECT * FROM job_view where jobID = '" & search & "'", conn)
+        Dim da As New SqlDataAdapter(cmd)
+        da.SelectCommand = cmd
+        da.Fill(dtable)
+
+
+        Dim ds As New salesDS
+        For Each row As DataRow In dtable.Rows
+            ds.Tables("JO").Rows.Add(row(0), row(1), row(2), row(3), row(4), row(5), row(6), row(7), row(8))
+        Next
+        Dim rptDoc As CrystalDecisions.CrystalReports.Engine.ReportDocument
+        rptDoc = New JOForm
+        rptDoc.SetDataSource(ds.Tables("JO"))
+        print_slip_viewer.CrystalReportViewer1.ReportSource = rptDoc
+        frmLoading.Close()
+        print_slip_viewer.ShowDialog()
+    End Sub
     Public Sub insertData(ByVal tbl As String, ByVal data As String)
         checkConn()
-        MsgBox(data)
         Dim cmd As New SqlCommand("insert into " & tbl & " values('" & data & "')", conn)
+        cmd.ExecuteNonQuery()
+    End Sub
+
+    Public Sub updateData(ByVal tbl As String, ByVal data As String, ByVal condition As String)
+        checkConn()
+        Dim cmd As New SqlCommand("update " & tbl & " set " & data & " where " & Condition & "", conn)
         cmd.ExecuteNonQuery()
     End Sub
 End Class

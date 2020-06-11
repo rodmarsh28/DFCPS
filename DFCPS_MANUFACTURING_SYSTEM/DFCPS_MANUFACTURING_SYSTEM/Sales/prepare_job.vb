@@ -28,22 +28,17 @@ Public Class prepare_job
     End Sub
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         Try
-            Dim sys As New systemDataContext
-            Dim job As New tblJob
+            Dim sc As New sales_class
+            Dim data As String
+            Dim cond As String
             For Each row As DataGridViewRow In dgv.Rows
-                job.jobID = TXTJONO.Text
-                job.cardID = cardid
-                job.dateTrans = Now
-                job.itemNo = row.Cells(0).Value
-                job.jobQTY = row.Cells(5).Value
-                job.status = ""
-                job.remarks = ""
-                job.userID = MainForm.LBLID.Text
-                sys.tblJobs.InsertOnSubmit(job)
-
-                sys.SubmitChanges()
+                data = TXTJONO.Text & "',getdate(),'" & cardid & "','" & row.Cells(0).Value & "','" & row.Cells(5).Value & "','','','" & MainForm.LBLID.Text
+                sc.insertData("tblJob", data)
             Next
-           
+
+            data = "status = 'JOB PREPARED SUCCESSFULLY'"
+            cond = "salesOrderNo = '" & TXTREF.Text & "'"
+            sc.updateData("tblSalesOrder", data, cond)
             MsgBox("success")
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -51,6 +46,7 @@ Public Class prepare_job
     End Sub
 
     Private Sub prepare_job_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.MdiParent = frmSalesMain
         autoref()
         TXTJONO.Text = generateFormNo("tblJob", "JOBID", "JO-")
     End Sub
