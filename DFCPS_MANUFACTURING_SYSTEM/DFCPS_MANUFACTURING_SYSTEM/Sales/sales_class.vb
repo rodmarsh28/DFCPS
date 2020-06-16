@@ -155,15 +155,17 @@ Public Class sales_class
         frmLoading.Close()
         print_slip_viewer.ShowDialog()
     End Sub
-    Public Sub insertData(ByVal tbl As String, ByVal data As String)
+    Public Sub insertjob(ByVal jobid As String, ByVal cardid As String, ByVal itemno As String, ByVal itemqty As String, ByVal status As String)
         checkConn()
-        Dim cmd As New SqlCommand("insert into " & tbl & " values('" & data & "')", conn)
+        Dim cmd As New SqlCommand("insert into tbljob values('" & jobid & "',GETDATE(),'" & cardid & "','" & itemno & _
+                                  "'," & itemqty & ",'" & status & "','','','" & MainForm.LBLID.Text & "'", conn)
         cmd.ExecuteNonQuery()
     End Sub
 
-    Public Sub updateData(ByVal tbl As String, ByVal data As String, ByVal condition As String)
+    Public Sub updatejob(ByVal TRNO As String)
         checkConn()
-        Dim cmd As New SqlCommand("update " & tbl & " set " & data & " where " & Condition & "", conn)
+        Dim cmd As New SqlCommand("update tblSalesOrder set status = 'JOB PREPARED SUCCESSFULLY' where TRNO = '" & TRNO & "'", conn)
         cmd.ExecuteNonQuery()
     End Sub
+
 End Class

@@ -33,7 +33,7 @@ Public Class prepare_job
             Dim cond As String
             For Each row As DataGridViewRow In dgv.Rows
                 data = TXTJONO.Text & "',getdate(),'" & cardid & "','" & row.Cells(0).Value & "','" & row.Cells(5).Value & "','','','" & MainForm.LBLID.Text
-                sc.insertData("tblJob", data)
+
             Next
 
             data = "status = 'JOB PREPARED SUCCESSFULLY'"
